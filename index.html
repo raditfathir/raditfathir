@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: linear-gradient(45deg, #0a0a0a, #1a1a1a);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .ticket-container {
+            width: 850px;
+            height: 380px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .ticket-content {
+            height: 100%;
+            display: flex;
+            color: white;
+        }
+
+        .left-section {
+            flex: 2;
+            padding: 20px;
+            border-right: 2px dashed rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            padding: 8px 15px;
+            border-radius: 25px;
+            color: #000;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cinema-name {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .movie-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .seat-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .seat-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .seat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .barcode {
+            width: 180px;
+            height: 80px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000,
+                #000 3px,
+                #fff 3px,
+                #fff 6px
+            );
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .ticket-number {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+
+        .decorative-circle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #0a0a0a;
+            border-radius: 50%;
+        }
+
+        .circle-left {
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .circle-right {
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hologram {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 45%, #FFD700 50%, transparent 55%);
+            border-radius: 50%;
+            animation: hologram-rotate 3s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes hologram-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket-container">
+        <div class="ticket-content">
+            <div class="left-section">
+                <div class="premium-badge">Premium Class</div>
+                <div class="cinema-name">PREMIER CINEMA XXI</div>
+                <div class="movie-title">DUNE: PART TWO</div>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Date</span>
+                        <span class="info-value">15 NOV 2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Time</span>
+                        <span class="info-value">19:30 WIB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Theater</span>
+                        <span class="info-value">PREMIERE 1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Duration</span>
+                        <span class="info-value">166 mins</span>
+                    </div>
+                </div>
+                <div class="hologram"></div>
+            </div>
+            
+            <div class="right-section">
+                <div class="seat-section">
+                    <div class="seat-label">SEAT NUMBER</div>
+                    <div class="seat-number">G-15</div>
+                </div>
+                
+                <div class="barcode"></div>
+                <div class="ticket-number">TIX-2024111500123</div>
+            </div>
+        </div>
+        <div class="decorative-circle circle-left"></div>
+        <div class="decorative-circle circle-right"></div>
+    </div>
+</body>
+</html>
